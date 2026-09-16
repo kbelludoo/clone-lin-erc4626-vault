@@ -1,0 +1,20 @@
+@RULEL:CLONE_LIN_ERC4626:1.0.0
+@STATUS="EXPERIMENTAL_UINT64_SCALE"
+@UPSTREAM="https://github.com/OpenZeppelin/openzeppelin-contracts"
+@TAG="v5.0.2"
+@COMMIT="dbb6104ce834628e473d2173bbc9d47f81a9eec3"
+@BLOB="ec6087231cb5e9a8c9a91d3eec8583fb89e1e168"
+@SHA256="bc3eb01a42e08f33e8591a726e28c7107b6c4fedd6be0d9d2d1c049853698be8"
+@PROOFS="https://github.com/kbelludoo/lin-open/tree/cursor/linguagem-lin-e-valida-o-e4ba/examples/erc4626_vault"
+
+~R{.c=claims .n=non_claims}
+.c{
+  formula="shares = floor(assets * (supply + 10**offset) / (totalAssets + 1))"
+  class="EXPERIMENTAL"
+  width="uint64 + 128-bit product"
+}
+.n{
+  not_vault="not a production ERC-4626 vault"
+  not_uint256="not Solidity uint256 / Math.mulDiv assembly"
+  not_tvl="no TVL or yield claim"
+}
